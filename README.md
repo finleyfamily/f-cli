@@ -1,8 +1,10 @@
-# generic-template
+# f-cli
 
-A generic template for GitHub repos.
+A CLI tool packed with commands designed to simplify the workflow of a Cloud Engineer.
 
-## Commands
+## Development
+
+### Commands
 
 | Command               | Description                            |
 |-----------------------|----------------------------------------|
@@ -11,19 +13,11 @@ A generic template for GitHub repos.
 | `make plan <env>`     | Execute runway for a given environment |
 | `make sync`           | Sync python environment with pipfile   |
 
-## Setup
+### Setup
 
 This section outlines how to setup portions of the repo that cannot be reasonably automated.
 
-### Labels
-
-1. Install [git-labelmaker](https://github.com/himynameisdave/git-labelmaker).
-   - `npm i -g git-labelmaker`
-2. [Generate a GitHub token](https://github.com/settings/tokens) with **repo** permissions.
-3. Run `git-labelmaker` to initialize your session using the token.
-4. Select the `Add Labels From Package` in the `git-labelmaker` menu and enter `./.github/labels.json`.
-
-### Development Environment
+#### Development Environment
 
 1. `export $(cat .env | xargs)` to setup environment variables.
 2. `make sync` or `pipenv sync --dev --three` after completing **Step 1**.
