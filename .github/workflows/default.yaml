@@ -14,6 +14,7 @@ jobs:
     name: Python tests
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: true
       max-parallel: 4
       matrix:
         python-version: [3.7, 3.8]
@@ -42,7 +43,9 @@ jobs:
 
   build:
     name: Build package
-    if: success()
+    needs:
+      - secret-scan
+      - python-tests
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -66,7 +69,9 @@ jobs:
 
   publish-pypi:
     name: Publish on PyPI
-    if: success() && startsWith(github.event.ref, 'refs/tags')
+    needs:
+      - build
+    if: startsWith(github.event.ref, 'refs/tags')
     runs-on: ubuntu-latest
     steps:
       - name: Download dist artifact
