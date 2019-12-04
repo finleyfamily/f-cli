@@ -50,6 +50,7 @@
         "awslambda",
         "awsrun",
         "basepath",
+        "bdist",
         "bitbucket",
         "boto",
         "botocore",

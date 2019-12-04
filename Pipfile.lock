@@ -21,9 +21,38 @@
             ],
             "version": "==7.0"
         },
+        "colorama": {
+            "hashes": [
+                "sha256:05eed71e2e327246ad6b38c540c4a3117230b19679b875190486ddd2d721422d",
+                "sha256:f8ac84de7840f5b9c4e3347b3c1eaa50f7e49c2b07596221daec5edaabbd7c48"
+            ],
+            "version": "==0.4.1"
+        },
+        "coloredlogs": {
+            "hashes": [
+                "sha256:34fad2e342d5a559c31b6c889e8d14f97cb62c47d9a2ae7b5ed14ea10a79eff8",
+                "sha256:b869a2dda3fa88154b9dd850e27828d8755bfab5a838a1c97fbc850c6e377c36"
+            ],
+            "version": "==10.0"
+        },
         "f-cli": {
             "editable": true,
             "path": "."
+        },
+        "humanfriendly": {
+            "hashes": [
+                "sha256:23057b10ad6f782e7bc3a20e3cb6768ab919f619bbdc0dd75691121bbde5591d",
+                "sha256:33ee8ceb63f1db61cce8b5c800c531e1a61023ac5488ccde2ba574a85be00a85"
+            ],
+            "version": "==4.18"
+        },
+        "typing-extensions": {
+            "hashes": [
+                "sha256:091ecc894d5e908ac75209f10d5b4f118fbdb2eb1ede6a63544054bb1edb41f2",
+                "sha256:910f4656f54de5993ad9304959ce9bb903f90aadc7c67a0bef07e678014e892d",
+                "sha256:cf8b63fedea4d89bab840ecbb93e75578af28f76f66c35889bd7065f5af88575"
+            ],
+            "version": "==3.7.4.1"
         }
     },
     "develop": {
@@ -73,11 +102,11 @@
         },
         "importlib-metadata": {
             "hashes": [
-                "sha256:a82ca8c109e194d7d6aee3f7531b0470dd4dd6b36ec14fd55087142a96bd55a7",
-                "sha256:f4a7ba72e93bc97ff491b66d69063819ae2b75238bb653cd4c95e3f2847ce76e"
+                "sha256:b044f07694ef14a6683b097ba56bd081dbc7cdc7c7fe46011e499dfecc082f21",
+                "sha256:e6ac600a142cf2db707b1998382cc7fc3b02befb7273876e01b8ad10b9652742"
             ],
             "markers": "python_version < '3.8'",
-            "version": "==1.0.0"
+            "version": "==1.1.0"
         },
         "isort": {
             "hashes": [
