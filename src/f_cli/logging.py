@@ -1,5 +1,6 @@
 """f-cli custom logging module."""
 from typing import Any, Optional, TextIO, Union
+
 from enum import IntEnum
 import logging
 import sys

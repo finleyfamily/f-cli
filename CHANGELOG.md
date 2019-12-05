@@ -10,3 +10,5 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 
 - custom, colorized logger
+- `--debug` option for debug logging
+- `--verbose` option for verbose logging

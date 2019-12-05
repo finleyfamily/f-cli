@@ -1,4 +1,4 @@
-"""Tests for src/logging.py."""
+"""Tests for src/f_cli/logging.py."""
 import logging
 from unittest import TestCase
 
@@ -8,7 +8,7 @@ from f_cli.logging import FLogger, LogLevels, setup_logging
 logging.setLoggerClass(FLogger)
 
 
-class Test_LogLevels(TestCase):
+class TestLogLevels(TestCase):
     """Test for LogLevels."""
 
     def test_level_values(self) -> None:
@@ -40,8 +40,8 @@ class Test_LogLevels(TestCase):
         self.assertFalse(LogLevels.has_value(1))
 
 
-class Test_FLogger(TestCase):
-    """Tests for FLogger"""
+class TestFLogger(TestCase):
+    """Tests for FLogger."""
 
     logger: FLogger = logging.getLogger(__name__)
     msg: str = 'This is a test'
@@ -119,8 +119,9 @@ class Test_FLogger(TestCase):
                          [f'CRITICAL:{__name__}:{self.msg}'])
 
 
-class Test_ssetup_logging(TestCase):
+class TestSetupLoggingFunction(TestCase):
     """Test the setup_logging function."""
+
     f_logger: logging.Logger = logging.getLogger('f-cli')
     boto3_logger: logging.Logger = logging.getLogger('boto3')
     botocore_logger: logging.Logger = logging.getLogger('botocore')
