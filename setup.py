@@ -5,7 +5,10 @@ from src.f_cli import __version__
 
 
 INSTALL_REQUIRES = [
-    'click~=7.0'
+    'click~=7.0',
+    'colorama~=0.4',
+    'coloredlogs~=10.0',
+    'typing-extensions~=3.7.4;python_version<"3.8"'
 ]
 
 TEST_REQUIRES = [
