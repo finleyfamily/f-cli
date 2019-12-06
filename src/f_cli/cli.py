@@ -6,6 +6,7 @@ import sys
 import click
 
 from . import __version__
+from .context import ContextObject
 from .logging import LogLevels, setup_logging
 from .resources.click_classes import CliGroup
 from .resources.click_options import click_common_options
@@ -52,6 +53,8 @@ def cli(ctx: click.Context,
         setup_logging(LogLevels.VERBOSE)
     else:
         setup_logging(LogLevels.INFO)
+
+    ctx.obj = ContextObject()
 
 
 def main() -> int:
