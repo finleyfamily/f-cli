@@ -9,7 +9,7 @@ logging.setLoggerClass(FLogger)
 
 
 class TestLogLevels(TestCase):
-    """Test for LogLevels."""
+    """Tests for LogLevels."""
 
     def test_level_values(self) -> None:
         """Ensure levels have the appropriate values."""
