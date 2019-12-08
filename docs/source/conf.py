@@ -9,41 +9,32 @@ full list see the documentation: http://www.sphinx-doc.org/en/master/config
 
 """
 import os
+from os.path import dirname, realpath
 from shutil import copyfile
 import sys
 
 # add to path for imports
+root_dir = dirname(dirname(dirname(realpath(__file__))))
+
 sys.path.insert(0, os.getcwd())
+sys.path.insert(0, os.path.join(root_dir, 'src'))
 
 from pygment_styles import OneDark, pygments_patch_style  # noqa
+from f_cli import __version__  # noqa
 
 
 pygments_patch_style("one_dark", OneDark)
 
 copyfile('../../CHANGELOG.md', './changelog.md')
 
-# -- Path setup --------------------------------------------------------------
-
-# If extensions (or modules to document with autodoc) are in another directory,
-# add these directories to sys.path here. If the directory is relative to the
-# documentation root, use os.path.abspath to make it absolute, like shown here.
-#
-# from os.path import dirname, realpath
-# import os.path
-# import sys
-# root_dir = dirname(dirname(dirname(realpath(__file__))))
-# sys.path.insert(0, os.path.join(root_dir, 'src'))
-#
-# from local_package import __version__  # noqa
-
 
 # -- Project information -----------------------------------------------------
 
-project = 'generic-template'
+project = 'f-cli'
 copyright = '2019, Kyle Finley'
 author = 'Kyle Finley'
-version = '0.0.0'
-release = '0.0.0'
+version = __version__
+release = __version__
 
 
 # -- General configuration ---------------------------------------------------
@@ -113,10 +104,7 @@ html_theme = 'sphinx_rtd_theme'
 # scheme like http://example.org/style.css. The attributes is used for
 # attributes of <link> tag. It defaults to an empty list.
 
-html_css_files = [
-    'css/rtd_dark.css',
-    # 'css/code_one_dark.scss'
-]
+html_css_files = ['css/rtd_dark.css']
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,

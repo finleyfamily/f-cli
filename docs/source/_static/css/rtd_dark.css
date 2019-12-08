@@ -43,6 +43,7 @@ code.docutils {
 }
 
 .wy-menu-vertical li.current>a span.toctree-expand,
+		.wy-menu-vertical li.toctree-l2 span.toctree-expand,
 		.wy-menu-vertical li.toctree-l3 span.toctree-expand,
 		.wy-menu-vertical li.toctree-l4 span.toctree-expand,
 		.wy-menu-vertical li.toctree-l5 span.toctree-expand,
