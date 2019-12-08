@@ -16,6 +16,28 @@ code.docutils {
 	color: aliceblue;
 }
 
+.wy-menu-vertical li.current>a,
+		.wy-menu-vertical li.toctree-l2.current li.toctree-l3>a,
+		.wy-menu-vertical li.toctree-l3.current li.toctree-l4>a,
+		.wy-menu-vertical li.toctree-l4.current li.toctree-l5>a
+		.wy-menu-vertical li.toctree-l5.current li.toctree-l6>a {
+	background: #282C34 !important;
+}
+
+.wy-menu-vertical li>a {
+	border-bottom: solid 1px #282C34 !important;
+	border-right: solid 1px #282C34 !important;
+	border-top: solid 1px #282C34 !important;
+}
+
+.wy-menu-vertical li.current>a span.toctree-expand,
+		.wy-menu-vertical li.toctree-l3 span.toctree-expand,
+		.wy-menu-vertical li.toctree-l4 span.toctree-expand,
+		.wy-menu-vertical li.toctree-l5 span.toctree-expand,
+		.wy-menu-vertical li.toctree-l6 span.toctree-expand {
+	color: aliceblue !important;
+}
+
 .method dt, .class dt, .data dt, .attribute dt, .function dt,
 	.descclassname, .descname {
 	background-color: #525252 !important;
@@ -36,7 +58,7 @@ code.docutils {
 }
 
 .btn-neutral:visited {
-    color: aliceblue !important;
+	color: aliceblue !important;
 }
 
 .admonition, .note, .sidebar-title {
@@ -49,23 +71,24 @@ code.docutils {
 
 .wy-side-nav-search {
 	background-color: inherit;
-	border-bottom: 1px solid #b9b9b9;
+	border-bottom: 1px solid aliceblue;
 }
 
 .wy-table thead, .rst-content table.docutils thead, .rst-content table.field-list thead {
-    background-color: #dcdcdc;
+	background-color: aliceblue;
 }
 
 .wy-table thead th, .rst-content table.docutils thead th, .rst-content table.field-list thead th {
-    border: solid 2px #b9b9b9;
+	border: solid 2px #282C34;
 }
 
 .wy-table thead p, .rst-content table.docutils thead p, .rst-content table.field-list thead p {
-    margin: 0;
+	margin: 0;
 }
 
-.wy-table-odd td, .wy-table-striped tr:nth-child(2n-1) td, .rst-content table.docutils:not(.field-list) tr:nth-child(2n-1) td {
-		background-color: #21252B;
+.wy-table-odd td, .wy-table-striped tr:nth-child(2n-1) td,
+		.rst-content table.docutils:not(.field-list) tr:nth-child(2n-1) td {
+	background-color: #21252B;
 }
 
 .highlight {
