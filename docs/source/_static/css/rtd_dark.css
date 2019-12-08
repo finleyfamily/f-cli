@@ -16,7 +16,7 @@ code.docutils {
 	color: aliceblue;
 }
 
-.wy-menu-vertical li.current>a,
+.wy-menu-vertical li.current, .wy-menu-vertical li.current>a,
 		.wy-menu-vertical li.toctree-l2.current li.toctree-l3>a,
 		.wy-menu-vertical li.toctree-l3.current li.toctree-l4>a,
 		.wy-menu-vertical li.toctree-l4.current li.toctree-l5>a
