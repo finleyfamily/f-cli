@@ -19,9 +19,17 @@ code.docutils {
 .wy-menu-vertical li.current, .wy-menu-vertical li.current>a,
 		.wy-menu-vertical li.toctree-l2.current li.toctree-l3>a,
 		.wy-menu-vertical li.toctree-l3.current li.toctree-l4>a,
-		.wy-menu-vertical li.toctree-l4.current li.toctree-l5>a
+		.wy-menu-vertical li.toctree-l4.current li.toctree-l5>a,
 		.wy-menu-vertical li.toctree-l5.current li.toctree-l6>a {
 	background: #282C34 !important;
+}
+
+.wy-menu-vertical li>a:hover, .wy-menu-vertical li.current>a:hover,
+		.wy-menu-vertical li.toctree-l2.current li.toctree-l3>a:hover,
+		.wy-menu-vertical li.toctree-l3.current li.toctree-l4>a:hover,
+		.wy-menu-vertical li.toctree-l4.current li.toctree-l5>a:hover,
+		.wy-menu-vertical li.toctree-l5.current li.toctree-l6>a:hover {
+	background: aliceblue !important;
 }
 
 .wy-menu-vertical li>a {
@@ -30,12 +38,16 @@ code.docutils {
 	border-top: solid 1px #282C34 !important;
 }
 
+.wy-menu-vertical li>a:hover {
+	background: aliceblue !important;
+}
+
 .wy-menu-vertical li.current>a span.toctree-expand,
 		.wy-menu-vertical li.toctree-l3 span.toctree-expand,
 		.wy-menu-vertical li.toctree-l4 span.toctree-expand,
 		.wy-menu-vertical li.toctree-l5 span.toctree-expand,
 		.wy-menu-vertical li.toctree-l6 span.toctree-expand {
-	color: aliceblue !important;
+	color: #C776DF  !important;
 }
 
 .method dt, .class dt, .data dt, .attribute dt, .function dt,
