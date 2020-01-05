@@ -6,4 +6,4 @@ clean:
 	rm -rf tmp/
 
 build: clean
-	poetry build
+	poetry build --verbose

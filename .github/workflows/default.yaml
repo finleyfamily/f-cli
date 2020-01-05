@@ -60,7 +60,7 @@ jobs:
       - name: Build dist
         shell: bash
         run: |
-          make clean
+          make build
       - name: Upload dist artifact
         uses: actions/upload-artifact@v1
         with:
