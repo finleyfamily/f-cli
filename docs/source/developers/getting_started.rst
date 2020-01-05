@@ -11,10 +11,13 @@ This section outlines how to setup portions of the repo that cannot be reasonabl
 Development Environment
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-This project uses ``pipenv`` to create Python virtual environment. This must be installed in your system before setting up your dev environment.
+The following must be installed globally on your system.
 
-#. ``export $(cat .env | xargs)`` to setup environment variables. This should be run each time you open a new terminal session when working within this project.
-#. ``make sync`` or ``pipenv sync --dev --three`` after completing **Step 1**.
+- `poetry`_ is used for Python virtual environments, building, and publishing this project.
+    - ``pip install "poetry>=1.0.0"``
+    - the virtual environment is created in the `.venv/` directory of the project.
+- `poetry-dynamic-versioning`_ is used to set the version of the project to allow for easy management.
+    ``pip install "poetry-dynamic-versioning~=0.4"``
 
 
 Makefile
@@ -32,3 +35,5 @@ This project utilizes ``make`` commands to simplify actions.
 | ``make sync``  | Sync python virtual environment with ``Pipfile.lock`` |
 +----------------+-------------------------------------------------------+
 
+.. _poetry: https://python-poetry.org/docs/
+.. _poetry-dynamic-versioning: https://pypi.org/project/poetry-dynamic-versioning/
