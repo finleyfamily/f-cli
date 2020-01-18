@@ -31,4 +31,3 @@ This project utilizes ``make`` commands to simplify actions.
 +----------------+-------------------------------------------------------+
 | ``make sync``  | Sync python virtual environment with ``Pipfile.lock`` |
 +----------------+-------------------------------------------------------+
-

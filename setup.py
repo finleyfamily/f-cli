@@ -44,7 +44,7 @@ setup(
     python_requires='>=3.7',
     keywords=['aws', 'cli'],
     packages=find_packages(where='src'),
-    package_dir={"": "src"},
+    package_dir={'': 'src'},
     install_requires=INSTALL_REQUIRES,
     tests_require=TEST_REQUIRES,
     extras_require={

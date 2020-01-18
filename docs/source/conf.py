@@ -23,7 +23,7 @@ from pygment_styles import OneDark, pygments_patch_style  # noqa isort:skip
 from f_cli import __version__  # noqa isort:skip
 
 
-pygments_patch_style("one_dark", OneDark)
+pygments_patch_style('one_dark', OneDark)
 
 copyfile('../../CHANGELOG.md', './changelog.md')
 

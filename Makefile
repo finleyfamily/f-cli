@@ -4,6 +4,7 @@ clean:
 	rm -rf docs/.venv docs/build docs/changelog.md
 	rm -rf f-cli.egg-info/
 	rm -rf tmp/
+	pipenv run pre-commit clean
 
 sort:
 	@pipenv run isort . --recursive --atomic
@@ -35,3 +36,6 @@ lint-pylint:
 	@echo "Running pylint..."
 	@find src/f_cli -name '*.py' | xargs pipenv run pylint --rcfile=setup.cfg
 	@echo ""
+
+update-precommit:
+	@pipenv run pre-commit install --install-hooks --overwrite
