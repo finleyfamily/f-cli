@@ -1,14 +1,12 @@
 """f-cli context object."""
-from typing import cast
-
 import logging
+from typing import cast
 
 from click import Context as ClickContext
 
 from .base import BaseClass
 from .logging import FLogger
 from .resources.user import User
-
 
 logging.setLoggerClass(FLogger)
 LOG = cast(FLogger, logging.getLogger('f-cli'))

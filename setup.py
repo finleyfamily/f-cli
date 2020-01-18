@@ -3,7 +3,6 @@ from setuptools import find_packages, setup
 
 from src.f_cli import __version__
 
-
 INSTALL_REQUIRES = [
     'click~=7.0',
     'colorama~=0.4',

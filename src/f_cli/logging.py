@@ -1,9 +1,8 @@
 """f-cli custom logging module."""
-from typing import Any, Optional, TextIO, Union
-
-from enum import IntEnum
 import logging
 import sys
+from enum import IntEnum
+from typing import Any, Optional, TextIO, Union
 
 import coloredlogs as cl
 

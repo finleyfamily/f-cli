@@ -111,6 +111,7 @@
         "isdigit",
         "isfile",
         "islower",
+        "isort",
         "isotime",
         "isupper",
         "jquery",
