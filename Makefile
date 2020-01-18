@@ -10,3 +10,20 @@ sync:
 
 build: clean
 	python setup.py sdist bdist_wheel
+
+lint: lint-mypy lint-flake8 lint-pylint
+
+lint-flake8:
+	@echo "Running flake8..."
+	@find src/f_cli -name '*.py' | xargs pipenv run flake8
+	@echo ""
+
+lint-mypy:
+	@echo "Running mypy..."
+	@find src/f_cli -name '*.py' -exec pipenv run mypy {} +
+	@echo ""
+
+lint-pylint:
+	@echo "Running pylint..."
+	@find src/f_cli -name '*.py' | xargs pipenv run pylint --rcfile=setup.cfg
+	@echo ""
