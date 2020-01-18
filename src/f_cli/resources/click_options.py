@@ -1,7 +1,6 @@
 """Common click options."""
-from typing import Callable
-
 import functools
+from typing import Callable
 
 import click
 

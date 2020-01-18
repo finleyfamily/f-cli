@@ -7,3 +7,9 @@ clean:
 
 build: clean
 	poetry build --verbose
+
+lint:
+	poetry run isort src/**/*.py --recursive --check-only
+
+sort:
+	poetry run isort src/**/*.py --recursive --atomic --verbose

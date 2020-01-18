@@ -38,6 +38,13 @@ pep8-naming = "^0.9.1"
 pydocstyle = "<4.0.0"
 pylint = "^2.4.4"
 pytest = "^5.3.2"
+isort = {extras = ["pyproject"], version = "^4.3.21"}
+
+# documentation
+sphinx = "^2.2"
+sphinx_rtd_theme = "^0.4"
+pygments = "^2.5"
+recommonmark = "~=0.6"
 
 [tool.poetry.scripts]
 f-cli = "f_cli.cli:main"
@@ -51,6 +58,9 @@ enable = true
 # When building, substitute the actual version number into the package variable.
 # Note: when run source, the version will always display as "0.0.0".
 files = ["src/f_cli/__init__.py"]
+
+[tool.isort]
+multi_line_output=1
 
 [build-system]
 requires = ["poetry>=0.12"]
