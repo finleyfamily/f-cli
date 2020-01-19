@@ -6,12 +6,6 @@ clean:
 	rm -rf tmp/
 	pipenv run pre-commit clean
 
-sort:
-	@pipenv run isort . --recursive --atomic
-
-sync:
-	PIPENV_VENV_IN_PROJECT=1 pipenv sync --dev
-
 build: clean
 	@python setup.py sdist bdist_wheel
 
@@ -36,6 +30,12 @@ lint-pylint:
 	@echo "Running pylint..."
 	@find src/f_cli -name '*.py' | xargs pipenv run pylint --rcfile=setup.cfg
 	@echo ""
+
+sort:
+	@pipenv run isort . --recursive --atomic
+
+sync:
+	PIPENV_VENV_IN_PROJECT=1 pipenv sync --dev
 
 update-precommit:
 	@pipenv run pre-commit install --install-hooks --overwrite

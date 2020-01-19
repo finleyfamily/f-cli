@@ -7,6 +7,14 @@
     ],
     "editor.tabSize": 4
   },
+  "[restructuredtext]": {
+    "editor.rulers": [
+      79,
+      100,
+      120
+    ],
+    "editor.tabSize": 4
+  },
   "autoDocstring.docstringFormat": "google",
   "cSpell.words": [
     "DHCP",
@@ -62,6 +70,7 @@
     "devops",
     "distro",
     "dockerignore",
+    "docstring",
     "docutils",
     "dotnetcore",
     "dynamodb",
