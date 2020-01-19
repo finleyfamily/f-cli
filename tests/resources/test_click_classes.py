@@ -1,7 +1,6 @@
 """Tests for src/f_cli/resources/click_classes.py."""
-from typing import List
-
 import json
+from typing import List
 from unittest import TestCase
 
 import click

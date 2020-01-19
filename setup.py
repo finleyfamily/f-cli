@@ -3,7 +3,6 @@ from setuptools import find_packages, setup
 
 from src.f_cli import __version__
 
-
 INSTALL_REQUIRES = [
     'click~=7.0',
     'colorama~=0.4',
@@ -45,7 +44,7 @@ setup(
     python_requires='>=3.7',
     keywords=['aws', 'cli'],
     packages=find_packages(where='src'),
-    package_dir={"": "src"},
+    package_dir={'': 'src'},
     install_requires=INSTALL_REQUIRES,
     tests_require=TEST_REQUIRES,
     extras_require={

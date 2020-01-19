@@ -8,3 +8,4 @@ Anyone that would like to contribute to this project or use it as a dependency o
 
     getting_started
     docs
+    pre-commit

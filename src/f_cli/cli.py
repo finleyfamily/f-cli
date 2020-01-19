@@ -1,7 +1,6 @@
 """f-cli entrypoint."""
-from typing import Any, Dict, List, Optional, Tuple, Union
-
 import sys
+from typing import Any, Dict, List, Optional, Tuple, Union
 
 import click
 
@@ -10,7 +9,6 @@ from .context import ContextObject
 from .logging import LogLevels, setup_logging
 from .resources.click_classes import CliGroup
 from .resources.click_options import click_common_options
-
 
 CLICK_CONTEXT_SETTINGS: Dict[str, Union[int, List[str]]] = {
     'help_option_names': ['-h', '--help'],

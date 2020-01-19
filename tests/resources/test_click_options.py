@@ -1,7 +1,6 @@
 """Tests for src/f_cli/resources/click_options.py."""
-from typing import Any, Dict
-
 import json
+from typing import Any, Dict
 from unittest import TestCase
 
 import click

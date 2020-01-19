@@ -1,7 +1,6 @@
 """Base classes used for some objects."""
-from typing import Any, Dict, Iterator
-
 from collections.abc import MutableMapping
+from typing import Any, Dict, Iterator
 
 
 class BaseClass(MutableMapping):

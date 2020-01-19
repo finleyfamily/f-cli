@@ -9,9 +9,9 @@ full list see the documentation: http://www.sphinx-doc.org/en/master/config
 
 """
 import os
+import sys
 from os.path import dirname, realpath
 from shutil import copyfile
-import sys
 
 # add to path for imports
 root_dir = dirname(dirname(dirname(realpath(__file__))))
@@ -19,11 +19,11 @@ root_dir = dirname(dirname(dirname(realpath(__file__))))
 sys.path.insert(0, os.getcwd())
 sys.path.insert(0, os.path.join(root_dir, 'src'))
 
-from pygment_styles import OneDark, pygments_patch_style  # noqa
-from f_cli import __version__  # noqa
+from pygment_styles import OneDark, pygments_patch_style  # noqa isort:skip
+from f_cli import __version__  # noqa isort:skip
 
 
-pygments_patch_style("one_dark", OneDark)
+pygments_patch_style('one_dark', OneDark)
 
 copyfile('../../CHANGELOG.md', './changelog.md')
 
