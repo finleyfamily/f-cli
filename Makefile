@@ -4,7 +4,6 @@ clean:
 	rm -rf docs/.venv docs/build docs/changelog.md
 	rm -rf f-cli.egg-info/
 	rm -rf tmp/
-	pipenv run pre-commit clean
 
 build: clean
 	@python setup.py sdist bdist_wheel
