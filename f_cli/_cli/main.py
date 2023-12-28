@@ -6,7 +6,8 @@ from typing import TYPE_CHECKING
 import rich_click as click
 
 from ..constants import __version__
-from ..context import Context
+from ..context import GLOBAL_CTX
+from . import commands
 from ._patch import pass_context
 
 if TYPE_CHECKING:
@@ -14,6 +15,7 @@ if TYPE_CHECKING:
 
 CLICK_CONTEXT_SETTINGS: dict[str, object] = {
     "help_option_names": ["-h", "--help"],
+    "rich_console": GLOBAL_CTX.console,
     "max_content_width": 100,
 }
 
@@ -28,4 +30,10 @@ click.rich_click.USE_RICH_MARKUP = True
 @pass_context
 def cli(ctx: ClickContext) -> None:
     """Finley CLI."""
-    ctx.obj = Context()
+    ctx.obj = GLOBAL_CTX
+
+
+# register all the other commands from the importable modules defined
+# in commands.
+for cmd in commands.__all__:
+    cli.add_command(getattr(commands, cmd))
