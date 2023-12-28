@@ -1,9 +1,14 @@
 CI := $(if $(CI),yes,no)
+REPORTS := $(if $(REPORTS),yes,$(GITLAB_CI))
 SHELL := /bin/bash
 
 ifeq ($(CI), yes)
 	POETRY_OPTS = "-v"
 	PRE_COMMIT_OPTS = --show-diff-on-failure --verbose
+endif
+
+ifeq ($(REPORTS), yes)
+	PYTEST_REPORT_OPTS = --cov-report xml
 endif
 
 help: ## show this message
@@ -97,7 +102,7 @@ spellcheck: ## run cspell
 test:  ## run integration and unit tests
 	@echo "Running integration & unit tests..."
 	@poetry run pytest $(PYTEST_REPORT_OPTS) \
-		--cov f_cli\
+		--cov f_cli \
 		--cov-report term-missing:skip-covered \
 		--dist loadfile \
 		--numprocesses auto
