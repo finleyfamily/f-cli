@@ -1,0 +1,222 @@
+[build-system]
+build-backend = "poetry.core.masonry.api"
+requires = ["poetry-core"]
+
+[tool.poetry]
+name = "f-cli"
+version = "0.0.0"
+authors = ["Kyle Finley <kyle@finley.sh>"]
+classifiers = [
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "Natural Language :: English",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Utilities",
+]
+description = "CLI created by Kyle Finley, for Kyle Finley."
+documentation = "https://f-cli.readthedocs.io"
+homepage = "https://f-cli.readthedocs.io"
+keywords = ["cli"]
+license = "Apache-2.0"
+maintainers = []
+packages = [
+  {include = "f_cli"},
+]
+readme = "README.md"
+repository = "https://github.com/ITProKyle/f-cli"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+click = "^8.1.7"
+rich = "^13.7.0"
+rich-click = "^1.7.2"
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^3.6.0"
+
+[tool.poetry.group.docs.dependencies]
+doc8 = "^1.1.1"
+furo = "^2023.9.10"
+sphinx = "^7.2.6"
+sphinx-autobuild = "^2021.3.14"
+sphinx-copybutton = "^0.5.2"
+sphinx-design = "^0.5.0"
+sphinxcontrib-apidoc = "^0.4.0"
+sphinxcontrib-jquery = "^4.1"
+
+[tool.poetry.group.lint.dependencies]
+black = "^23.12.0"
+ruff = "^0.1.9"
+
+[tool.poetry.group.test.dependencies]
+pytest = "^7.4.3"
+pytest-cov = "^4.1.0"
+pytest-mock = "^3.12.0"
+pytest-subprocess = "^1.5.0"
+pytest-sugar = "^0.9.7"
+pytest-xdist = "^3.3.1"
+
+[tool.poetry.scripts]
+f = "f_cli.main:cli"
+
+[[tool.poetry.source]]
+name = "PyPI"
+priority = "primary"
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://github.com/ITProKyle/f-lib/issues"
+
+[tool.black]
+force-exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.venv
+  | _build
+  | build
+  | dist
+  | node_modules
+)/
+'''
+include = '\.pyi?$'
+line-length = 88
+target-version = ["py311", "py312"]
+
+[tool.coverage.report]
+exclude_lines = [
+  "@overload",
+  "cov: ignore",  # standard exclude comment
+  "if TYPE_CHECKING:",  # excluded blocks
+  "if __name__ == .__main__.:",
+  "raise AssertionError",  # defensive exceptions
+  "raise NotImplementedError",
+]
+fail_under = 95  # TODO (kyle): raise to 100
+precision = 2
+show_missing = true
+
+[tool.coverage.run]
+branch = false  # not correctly reported - https://github.com/nedbat/coveragepy/issues/605
+omit = [
+  "*/__main__.py",
+  "*/type_defs.py",
+]
+
+[tool.doc8]
+ignore = [
+  "D001",  # Line too long
+]
+
+[tool.poetry-dynamic-versioning]  # poetry self add "poetry-dynamic-versioning[plugin]"
+bump = true
+enable = true
+fix-shallow-repository = true
+metadata = false
+strict = true
+style = "pep440"
+
+[tool.pyright]
+exclude = [
+  "**/.eggs",
+  "**/.git",
+  "**/.venv",
+  "**/__pycache__",
+  "**/docs",
+  "**/node_modules",
+  "**/typings",
+]
+pythonPlatform = "All"
+pythonVersion = "3.11"
+reportDuplicateImport = "none"
+reportImportCycles = "none"
+reportIncompatibleMethodOverride = "warning"
+reportMissingTypeStubs = "none"
+reportPrivateUsage = "none"
+reportUnknownMemberType = "none"
+reportUnnecessaryIsInstance = "warning"
+reportUnusedImport = "none"
+reportUnusedVariable = "none"
+strictParameterNoneValue = false
+typeCheckingMode = "strict"
+useLibraryCodeForTypes = true
+venv = ".venv"
+
+[tool.pytest.ini_options]
+addopts = [
+  "--cov-config=pyproject.toml",
+]
+filterwarnings = [
+  "ignore::pytest_mock.PytestMockWarning",
+]
+markers = [
+  "wip: isolate tests currently being worked on.",
+]
+python_classes = ["Test*"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
+testpaths = ["tests"]
+
+[tool.ruff]  # https://beta.ruff.rs/docs/settings/#top-level
+force-exclude = true
+ignore = [
+  "ANN101",  # Missing type annotation for `self` in method
+  "ANN102",  # Missing type annotation for `cls` in classmethod
+  "COM812",  # Trailing comma missing
+  "D203",  # 1 blank line required before class docstring
+  "D213",  # Multi-line docstring summary should start at the second line
+  "D215",  # Section underline is over-indented
+  "D403",  # First word of the first line should be capitalized
+  "D406",  # Section name should end with a newline
+  "D407",  # Missing dashed underline after section
+  "D408",  # Section underline should be in the line following the section's name
+  "D409",  # Section underline should match the length of its name
+  "ERA001",  # Found commented-out code  # NOTE (kyle): incorrectly detects cspell
+  "FIX002",  # Line contains TODO
+  "TD003",  # Missing issue link on the line following this TODO
+  "TID252",  # Relative imports from parent modules are banned
+]
+ignore-init-module-imports = true
+line-length = 120
+select = ["ALL"]
+show-fixes = true
+target-version = "py311"
+
+[tool.ruff.extend-per-file-ignores]
+"*.py" = [
+  "PYI024",  # Use `typing.NamedTuple` instead of `collections.namedtuple` - should only apply to pyi
+]
+"tests/*" = [
+  "FBT001",  # Boolean positional arg in function definition - this is fine here
+  "FBT003",  # Boolean positional value in function call - this is fine here
+  "PT004",  # Fixture does not return anything, add leading underscore
+  "S101",  # Use of `assert` detected - this is fine here
+  "S108",  # Probable insecure usage of temporary file or directory
+  "S604",  # Function call with `shell=True` parameter identified - this is fine here
+  "SLF001",  # Private member accessed - fine in tests
+]
+
+[tool.ruff.flake8-type-checking]  # https://beta.ruff.rs/docs/settings/#flake8-type-checking
+runtime-evaluated-base-classes = [
+  "pydantic.BaseModel",
+  "pydantic.BeforeValidator",
+]
+
+[tool.ruff.pydocstyle]  # https://beta.ruff.rs/docs/settings/#pydocstyle
+convention = "google"
+
+[tool.ruff.pylint]  # https://beta.ruff.rs/docs/settings/#pylint
+allow-magic-value-types = ["bytes", "int", "str"]
+max-args = 15
+max-returns = 10
+
+[tool.tomlsort]
+all = true
+in_place = true
+sort_first = ["tool.poetry"]
+spaces_before_inline_comment = 2
+trailing_comma_inline_array = true
+overrides."tool.poetry".first = ["name", "version"]
+overrides."tool.poetry.dependencies".first = ["python"]

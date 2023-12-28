@@ -7,11 +7,12 @@ on:
       - master
 
 jobs:
-  update_draft_release:
+  update-draft-release:
     name: Draft release
     runs-on: ubuntu-latest
     steps:
       # Drafts your next Release notes as Pull Requests are merged into "master"
-      - uses: toolmantim/release-drafter@v5.2.0
+      - uses: release-drafter/release-drafter@v5.24.0
         env:
+          # using a PAT here will allow releases to trigger a build/release
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

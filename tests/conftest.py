@@ -1,38 +1,45 @@
-"""Configure pytest."""
-import logging
+"""Pytest configuration, fixtures, and plugins."""
+from __future__ import annotations
+
 import os
-from typing import Dict
+from pathlib import Path
+from typing import TYPE_CHECKING
 
 import pytest
 
-LOG = logging.getLogger(__name__)
+from .factories import cli_runner_factory
+
+if TYPE_CHECKING:
+    from collections.abc import Iterator
+
+    from _pytest.fixtures import SubRequest
+    from click.testing import CliRunner
 
 
-@pytest.fixture(scope='session', autouse=True)  # type: ignore
-def aws_credentials() -> None:
-    """Ensure AWS SDK finds some (bogus) credentials in the environment.
+@pytest.fixture()
+def cli_runner(request: SubRequest) -> CliRunner:
+    """Initialize instance of `click.testing.CliRunner`."""
+    return cli_runner_factory(request)
 
-    Handles change in https://github.com/spulec/moto/issues/1924
+
+@pytest.fixture()
+def cli_runner_isolated(cli_runner: CliRunner) -> Iterator[CliRunner]:
+    """Initialize instance of :class:`click.testing.CliRunner` with ``isolate_filesystem()`` called."""
+    with cli_runner.isolated_filesystem():
+        yield cli_runner
+
+
+@pytest.fixture()
+def cd_tmp_path(tmp_path: Path) -> Iterator[Path]:
+    """Change directory to a temporary path.
+
+    Returns:
+        Path: Temporary path object.
 
     """
-    overrides: Dict[str, str] = {
-        'AWS_ACCESS_KEY_ID': 'testing',
-        'AWS_SECRET_ACCESS_KEY': 'testing',
-        'AWS_DEFAULT_REGION': 'us-east-1'
-    }
-    saved_env: Dict[str, str] = {}
-    for key, value in overrides.items():
-        LOG.info('Overriding env var: %s=%s', key, value)
-        saved_env[key] = os.environ.get(key, '')
-        os.environ[key] = value
-
-    yield
-
-    for key, value in saved_env.items():
-        LOG.info('Restoring saved env var: %s=%s', key, value)
-        if value is None:
-            del os.environ[key]
-        else:
-            os.environ[key] = value
-
-    saved_env.clear()
+    prev_dir = Path.cwd()
+    os.chdir(tmp_path)
+    try:
+        yield tmp_path
+    finally:
+        os.chdir(prev_dir)

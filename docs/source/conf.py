@@ -1,206 +1,136 @@
-# -*- coding: utf-8 -*-
-# pylint: skip-file
-# type: ignore
-"""
-Configuration file for the Sphinx documentation builder.
+"""Configuration file for the Sphinx documentation builder.
 
-This file only contain a selection of the most common options. For a
-full list see the documentation: http://www.sphinx-doc.org/en/master/config
+https://www.sphinx-doc.org/en/master/usage/configuration.html
 
 """
 import os
-import sys
-from os.path import dirname, realpath
-from shutil import copyfile
+from datetime import date
+from pathlib import Path
 
-# add to path for imports
-root_dir = dirname(dirname(dirname(realpath(__file__))))
+from pkg_resources import get_distribution
 
-sys.path.insert(0, os.getcwd())
-sys.path.insert(0, os.path.join(root_dir, 'src'))
-
-from pygment_styles import OneDark, pygments_patch_style  # noqa isort:skip
-from f_cli import __version__  # noqa isort:skip
-
-
-pygments_patch_style('one_dark', OneDark)
-
-copyfile('../../CHANGELOG.md', './changelog.md')
+ROOT_DIR = Path(__file__).parent.parent.parent
+DOC_SRC = ROOT_DIR / "docs" / "source"
 
 
 # -- Project information -----------------------------------------------------
-
-project = 'f-cli'
-copyright = '2019, Kyle Finley'
-author = 'Kyle Finley'
-version = __version__
-release = __version__
+project = "f-cli"
+copyright = f"{date.today().year}, Kyle Finley"  # noqa: A001, DTZ011
+author = "Kyle Finley"
+version = get_distribution(project).version
+release = ".".join(version.split(".")[:2])  # short X.Y version
 
 
 # -- General configuration ---------------------------------------------------
-
-# Add any Sphinx extension module names here, as strings. They can be
-# extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
-# ones.
-
-extensions = [
-    'recommonmark',
-    'sphinx.ext.autodoc',
-    'sphinx.ext.napoleon',
-    'sphinx.ext.viewcode'
-]
-
-# The file extensions of source files. Sphinx considers the files with
-# this suffix as sources. The value can be a dictionary mapping file
-# extensions to file types.
-
-source_suffix = {
-    '.rst': 'restructuredtext',
-    '.txt': 'restructuredtext',
-    '.md': 'markdown',
-}
-
-
-# The document name of the “master” document, that is, the document that
-# contains the root toctree directive.
-
-master_doc = 'index'
-
-# List of patterns, relative to source directory, that match files and
-# directories to ignore when looking for source files.
-# This pattern also affects html_static_path and html_extra_path.
-
+# https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
+add_function_parentheses = True
+add_module_names = True
+default_role = None
 exclude_patterns = []
-
-# A list of paths that contain extra templates (or templates that overwrite
-# builtin/theme-specific templates). Relative paths are taken as relative
-# to the configuration directory.
-
-templates_path = ['_templates']
-
-# The style name to use for Pygments highlighting of source code. If not
-# set, either the theme’s default style or 'sphinx' is selected for HTML
-# output.
-
-pygments_style = 'one_dark'  # TODO add custom style
+extensions = [
+    "sphinx.ext.autodoc",
+    "sphinx.ext.intersphinx",
+    "sphinx.ext.napoleon",
+    "sphinx.ext.todo",
+    "sphinx.ext.viewcode",
+    "sphinx_copybutton",
+    "sphinx_design",
+    "sphinxcontrib.apidoc",
+    "sphinxcontrib.jquery",
+]
+highlight_language = "default"
+intersphinx_mapping = {
+    "python": ("https://docs.python.org/3", None),  # link to python docs
+}
+language = "en"
+master_doc = "index"
+needs_extensions = {}
+nitpicky = True
+primary_domain = "py"
+pygments_style = "one-dark"  # syntax highlighting style
+pygments_dark_style = "one-dark"  # syntax highlighting style
+source_suffix = {".rst": "restructuredtext"}
+templates_path = ["_templates"]  # template dir relative to this dir
 
 
 # -- Options for HTML output -------------------------------------------------
-
-# The theme to use for HTML and HTML Help pages.  See the documentation for
-# a list of builtin themes.
-
-html_theme = 'sphinx_rtd_theme'
-
-# Theme options are theme-specific and customize the look and feel of a theme
-# further.  For a list of options available for each theme, see the
-# documentation.
-#
-# html_theme_options = {}
-
-# A list of CSS files. The entry must be a filename string or a tuple
-# containing the filename string and the attributes dictionary. The
-# filename must be relative to the html_static_path, or a full URI with
-# scheme like http://example.org/style.css. The attributes is used for
-# attributes of <link> tag. It defaults to an empty list.
-
-html_css_files = ['css/rtd_dark.css']
-
-# Add any paths that contain custom static files (such as style sheets) here,
-# relative to this directory. They are copied after the builtin static files,
-# so a file named "default.css" will overwrite the builtin "default.css".
-
-html_static_path = ['_static']
-
-# Custom sidebar templates, must be a dictionary that maps document names
-# to template names.
-#
-# The default sidebars (for documents that don't match any pattern) are
-# defined by theme itself.  Builtin themes are using these templates by
-# default: ``['localtoc.html', 'relations.html', 'sourcelink.html',
-# 'searchbox.html']``.
-#
-# html_sidebars = {}
-
-
-# -- Options for HTMLHelp output ---------------------------------------------
-
-# Output file base name for HTML help builder.
-htmlhelp_basename = 'pydoc'
-
-
-# -- Options for LaTeX output ------------------------------------------------
-
-latex_elements = {
-    # The paper size ('letterpaper' or 'a4paper').
-    #
-    # 'papersize': 'letterpaper',
-
-    # The font size ('10pt', '11pt' or '12pt').
-    #
-    # 'pointsize': '10pt',
-
-    # Additional stuff for the LaTeX preamble.
-    #
-    # 'preamble': '',
-
-    # Latex figure (float) alignment
-    #
-    # 'figure_align': 'htbp',
+# https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
+html_codeblock_linenos_style = "inline"
+html_css_files = [  # files relative to html_static_path
+    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/fontawesome.min.css",
+    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/solid.min.css",
+    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/brands.min.css",
+]
+html_short_title = f"{project} v{release}"
+html_show_copyright = True
+html_show_sphinx = False
+html_static_path = ["_static"]  # dir with static files relative to this dir
+html_theme = "furo"  # theme to use for HTML and HTML Help pages
+html_theme_options = {
+    "dark_css_variables": {
+        "font-stack--monospace": "Inconsolata, monospace",
+    },
+    "light_css_variables": {
+        "font-stack--monospace": "Inconsolata, monospace",
+    },
 }
-
-# Grouping the document tree into LaTeX files. List of tuples
-# (source start file, target name, title,
-#  author, documentclass [howto, manual, or own class]).
-latex_documents = [
-    (master_doc, f'{project}.tex', f'{project} Documentation',
-     author, 'manual'),
-]
+html_title = f"{project} v{version}"
 
 
-# -- Options for manual page output ------------------------------------------
-
-# One entry per manual page. List of tuples
-# (source start file, name, description, authors, manual section).
-man_pages = [
-    (master_doc, project, f'{project} Documentation',
-     [author], 1)
-]
+# -- Options for sphinx-apidoc -----------------------------------------------
+# https://www.sphinx-doc.org/en/master/man/sphinx-apidoc.html#environment
+os.environ["SPHINX_APIDOC_OPTIONS"] = "members"
 
 
-# -- Options for Texinfo output ----------------------------------------------
+# -- Options of sphinx.ext.autodoc -------------------------------------------
+# https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#configuration
+autoclass_content = "class"
+autodoc_class_signature = "separated"
+autodoc_default_options = {
+    "exclude-members": ", ".join(["model_config", "model_fields"]),  # noqa: FLY002
+    "member-order": "bysource",
+    "members": True,
+    "show-inheritance": True,
+}
+autodoc_preserve_defaults = True
+autodoc_type_aliases = {}
+autodoc_typehints = "signature"
 
-# Grouping the document tree into Texinfo files. List of tuples
-# (source start file, target name, title, author,
-#  dir menu entry, description, category)
-texinfo_documents = [
-    (master_doc, project, f'{project} Documentation',
-     author, project, 'One line description of project.',
-     'Miscellaneous'),
-]
 
-
-# -- Options for Epub output -------------------------------------------------
-
-# Bibliographic Dublin Core info.
-epub_title = project
-
-# The unique identifier of the text. This can be a ISBN number
-# or the project homepage.
-#
-# epub_identifier = ''
-
-# A unique identification for the text.
-#
-# epub_uid = ''
-
-# A list of files that should not be packed into the epub file.
-epub_exclude_files = ['search.html']
-
-# -- Options for autodoc  -----------------------------------------------------
-
-autoclass_content = 'both'
-
-# -- Options for napoleon  ----------------------------------------------------
+# -- Options for sphinx.ext.napoleon  ----------------------------------------
+# https://www.sphinx-doc.org/en/3.x/usage/extensions/napoleon.html#configuration
+napoleon_attr_annotations = True
 napoleon_google_docstring = True
 napoleon_include_init_with_doc = False
+napoleon_include_private_with_doc = False
+napoleon_include_special_with_doc = True
+napoleon_type_aliases = autodoc_type_aliases
+napoleon_use_admonition_for_examples = False
+napoleon_use_admonition_for_notes = False
+napoleon_use_admonition_for_references = False
+napoleon_use_ivar = False
+napoleon_use_param = False
+napoleon_use_rtype = True
+
+
+# -- Options for sphinx.ext.todo ---------------------------------------------
+# https://www.sphinx-doc.org/page/usage/extensions/todo.html
+todo_include_todos = True
+
+
+# -- Options for sphinxcontrib.apidoc  ----------------------------------------
+apidoc_excluded_paths = []
+apidoc_extra_args = [f"--templatedir={DOC_SRC / '_templates' / 'apidocs'}"]
+apidoc_module_dir = str(ROOT_DIR / "f_cli")
+apidoc_module_first = True
+apidoc_output_dir = "apidocs"
+apidoc_separate_modules = True
+apidoc_toc_file = "index"
+
+
+# -- Options for sphinx_copybutton ---------------------------------
+# https://sphinx-copybutton.readthedocs.io/en/latest/index.html
+copybutton_prompt_text = r">>> |\.\.\. |\$ |In \[\d*\]: | {2,5}\.\.\.: | {5,8}: "
+copybutton_prompt_is_regexp = True
+copybutton_remove_prompts = True
+copybutton_line_continuation_character = "\\"
