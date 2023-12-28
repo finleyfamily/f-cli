@@ -37,6 +37,7 @@ extensions = [
     "sphinx_design",
     "sphinxcontrib.apidoc",
     "sphinxcontrib.jquery",
+    "sphinx_click",
 ]
 highlight_language = "default"
 intersphinx_mapping = {
