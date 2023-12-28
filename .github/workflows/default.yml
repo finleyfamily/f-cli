@@ -64,9 +64,12 @@ jobs:
       - name: Run tests
         run: make test
       - name: Upload to Codecov
+        env:
+          RUNNER_ARCH: ${{ runner.arch }}
+          RUNNER_OS: ${{ runner.os }}
         uses: codecov/codecov-action@v3.1.4
         with:
-          env_vars: PYTHON_VERSION
+          env_vars: PYTHON_VERSION,RUNNER_ARCH,RUNNER_OS
           fail_ci_if_error: true
   build-pypi:
     name: Build PyPi 📦
