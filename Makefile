@@ -104,5 +104,5 @@ test:  ## run integration and unit tests
 	@poetry run pytest $(PYTEST_REPORT_OPTS) \
 		--cov f_cli \
 		--cov-report term-missing:skip-covered \
-		--dist loadfile \
-		--numprocesses auto
+		--dist worksteal \
+		--numprocesses logical

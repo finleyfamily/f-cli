@@ -17,10 +17,9 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - uses: ITProKyle/action-setup-python@v0.4.0
+      - uses: ITProKyle/action-setup-python@v0.7.0
         with:
           poetry-install: false
-          python-version: ${{ env.DEFAULT_PYTHON_VERSION }}
       - name: Install Poetry Plugins
         run: poetry self add "poetry-dynamic-versioning[plugin]"
       - name: Run Build
@@ -45,10 +44,9 @@ jobs:
         with:
           name: pypi-dist
           path: dist
-      - uses: ITProKyle/action-setup-python@v0.4.0
+      - uses: ITProKyle/action-setup-python@v0.7.0
         with:
           poetry-install: false
-          python-version: ${{ env.DEFAULT_PYTHON_VERSION }}
       - name: Install Poetry Plugins
         run: poetry self add "poetry-dynamic-versioning[plugin]"
       - name: Publish Distribution 📦 to PyPI
@@ -65,10 +63,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: master
-      - uses: ITProKyle/action-setup-python@v0.4.0
-        with:
-          poetry-install: false
-          python-version: ${{ env.DEFAULT_PYTHON_VERSION }}
+      - uses: ITProKyle/action-setup-python@v0.7.0
       - name: Install Poetry Plugins
         run: poetry self add "poetry-dynamic-versioning[plugin]"
       - name: Bump Version

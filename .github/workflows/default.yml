@@ -11,37 +11,24 @@ defaults:
     shell: bash
 
 env:
-  DEFAULT_PYTHON_VERSION: 3.11
   NODE_VERSION: '20'
   PYTEST_ADDOPTS: --color=yes
 
 jobs:
-  pre-commit:
-    name: pre-commit
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: [3.11]
-    steps:
-      - uses: actions/checkout@v3
-      - uses: ITProKyle/action-setup-python@v0.4.0
-        with:
-          python-version: ${{ matrix.python-version }}
-      - run: make run-pre-commit
   lint-python:
     name: Lint Python
     strategy:
       matrix:
-        python-version: [3.11, 3.12]
+        python-version: [3.12]
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v3
-      - name: Install Node
-        uses: actions/setup-node@v3
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v4
         with:
-          node-version: ${{ env.NODE_VERSION }}
-      - uses: ITProKyle/action-setup-python@v0.4.0
+          cache: npm
+          cache-dependency-path: package-lock.json
+          node-version-file: package.json
+      - uses: ITProKyle/action-setup-python@v0.7.0
         with:
           python-version: ${{ matrix.python-version }}
       - name: Install Node Dependencies
@@ -53,12 +40,12 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.11, 3.12]
+        python-version: [3.12]
     env:
       PYTHON_VERSION: ${{ matrix.python-version }}
     steps:
       - uses: actions/checkout@v3
-      - uses: ITProKyle/action-setup-python@v0.4.0
+      - uses: ITProKyle/action-setup-python@v0.7.0
         with:
           python-version: ${{ matrix.python-version }}
       - name: Run tests
@@ -74,7 +61,6 @@ jobs:
   build-pypi:
     name: Build PyPi 📦
     needs:
-      - pre-commit
       - lint-python
       - test-python
     runs-on: ubuntu-latest
@@ -83,9 +69,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - uses: ITProKyle/action-setup-python@v0.4.0
-        with:
-          python-version: ${{ env.DEFAULT_PYTHON_VERSION }}
+      - uses: ITProKyle/action-setup-python@v0.7.0
       - name: Install Poetry Plugins
         run: poetry self add "poetry-dynamic-versioning[plugin]"
       - name: Run Build
