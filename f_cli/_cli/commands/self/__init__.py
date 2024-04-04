@@ -1,4 +1,5 @@
 """CLI commands for interacting with the CLI itself."""
+
 import rich_click as click
 
 from .config import self_config

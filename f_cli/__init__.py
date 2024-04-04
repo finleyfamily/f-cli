@@ -1,4 +1,5 @@
 """Finley CLI."""
+
 from . import constants, type_defs
 from .constants import __version__
 

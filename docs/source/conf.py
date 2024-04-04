@@ -3,6 +3,7 @@
 https://www.sphinx-doc.org/en/master/usage/configuration.html
 
 """
+
 import os
 from datetime import date
 from pathlib import Path
