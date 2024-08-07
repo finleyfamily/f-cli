@@ -1,4 +1,5 @@
 """CLI commands for interacting with the CLI's configuration."""
+
 import rich_click as click
 
 from ._init import self_config_init

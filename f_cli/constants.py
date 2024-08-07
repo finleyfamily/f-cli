@@ -1,15 +1,23 @@
 """f-cli constants."""
+
 import os
-from importlib.metadata import PackageNotFoundError, version
 from pathlib import Path
 
 from f_lib import SystemInfo
 
-try:
-    __version__ = version(__name__)
-except PackageNotFoundError:  # cov: ignore
-    # package is not installed
-    __version__ = "0.0.0"
+__version__: str = "0.0.0"
+"""Version of the Python package presented as a :class:`string`.
+
+Dynamically set upon release by [poetry-dynamic-versioning](https://github.com/mtkennerly/poetry-dynamic-versioning).
+
+"""
+
+__version_tuple__: tuple[int, int, int] | tuple[int, int, int, str] = (0, 0, 0)
+"""Version of the Python package presented as a :class:`tuple`.
+
+Dynamically set upon release by [poetry-dynamic-versioning](https://github.com/mtkennerly/poetry-dynamic-versioning).
+
+"""
 
 SYSTEM_INFO = SystemInfo()
 """System information."""

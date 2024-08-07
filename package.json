@@ -1,8 +1,8 @@
 {
   "devDependencies": {
-    "@itprokyle/cspell-dict": "^1.2.1",
-    "cspell": "^8.6.1",
-    "pyright": "^1.1.343"
+    "@itprokyle/cspell-dict": "^1.2.4",
+    "cspell": "^8.13.1",
+    "pyright": "^1.1.375"
   },
   "name": "f-cli",
   "version": "0.0.0"

@@ -1,4 +1,5 @@
 """Test f_cli._cli.commands.self.config._init."""
+
 from __future__ import annotations
 
 from typing import TYPE_CHECKING

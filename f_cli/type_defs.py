@@ -1,4 +1,5 @@
 """Type definitions."""
+
 from rich_click.rich_context import RichContext
 
 from .context import Context
