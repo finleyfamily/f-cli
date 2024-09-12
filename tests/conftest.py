@@ -17,20 +17,20 @@ if TYPE_CHECKING:
     from click.testing import CliRunner
 
 
-@pytest.fixture()
+@pytest.fixture
 def cli_runner(request: SubRequest) -> CliRunner:
     """Initialize instance of `click.testing.CliRunner`."""
     return cli_runner_factory(request)
 
 
-@pytest.fixture()
+@pytest.fixture
 def cli_runner_isolated(cli_runner: CliRunner) -> Iterator[CliRunner]:
     """Initialize instance of :class:`click.testing.CliRunner` with ``isolate_filesystem()`` called."""
     with cli_runner.isolated_filesystem():
         yield cli_runner
 
 
-@pytest.fixture()
+@pytest.fixture
 def cd_tmp_path(tmp_path: Path) -> Iterator[Path]:
     """Change directory to a temporary path.
 
