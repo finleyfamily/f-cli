@@ -38,7 +38,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: testpypi
-      url: https://test.pypi.org/project/f-cli
+      url: https://test.pypi.org/project/${{ github.event.repository.name }}
     permissions:
       id-token: write
     steps:
