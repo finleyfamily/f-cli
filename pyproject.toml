@@ -1,7 +1,8 @@
-[tool.poetry]
+[project]
 name = "f-cli"
-version = "0.0.0"
-authors = ["Kyle Finley <kyle@finley.sh>"]
+authors = [
+  {email = "kyle@finley.sh", name = "Kyle Finley"},
+]
 classifiers = [
   "Environment :: Console",
   "Intended Audience :: Developers",
@@ -10,24 +11,38 @@ classifiers = [
   "Programming Language :: Python :: 3.12",
   "Topic :: Utilities",
 ]
+dependencies = [
+  "click (>=8.1.7, <9.0.0)",
+  "f-lib (>=0.4.2, <1.0.0)",
+  "rich (>=13.7.1, <14.0.0)",
+  "rich-click (>=1.8.3, <2.0.0)",
+]
 description = "CLI created by Kyle Finley, for Kyle Finley."
+dynamic = [
+  "version",
+]
+keywords = ["cli"]
+license = {text = "Apache-2.0"}
+maintainers = [
+  {email = "kyle@finley.sh", name = "Kyle Finley"},
+]
+requires-python = ">=3.12, <4"
+
+[project.scripts]
+f = "f_cli._cli.main:cli"
+
+[project.urls]
+changelog = "https://github.com/finleyfamily/f-cli/releases"
 documentation = "https://f-cli.readthedocs.io"
 homepage = "https://f-cli.readthedocs.io"
-keywords = ["cli"]
-license = "Apache-2.0"
-maintainers = []
+issues = "https://github.com/finleyfamily/f-cli/issues"
+source = "https://github.com/finleyfamily/f-cli"
+
+[tool.poetry]
+version = "0.0.0"
 packages = [
   {include = "f_cli"},
 ]
-readme = "README.md"
-repository = "https://github.com/finleyfamily/f-cli"
-
-[tool.poetry.dependencies]
-python = "^3.12"
-click = "^8.1.7"
-f-lib = "^0.4.2"
-rich = "^13.7.1"
-rich-click = "^1.8.3"
 
 [tool.poetry.group.dev.dependencies]
 pre-commit = "^4.0.1"
@@ -46,7 +61,7 @@ sphinxcontrib-programoutput = "^0.17"
 
 [tool.poetry.group.lint.dependencies]
 black = "^24.10.0"
-ruff = "^0.8.6"
+ruff = "^0.9.0"
 
 [tool.poetry.group.test.dependencies]
 coverage = "^7.6.10"
@@ -56,15 +71,9 @@ pytest-mock = "^3.14.0"
 pytest-sugar = "^1.0.0"
 pytest-xdist = "^3.6.1"
 
-[tool.poetry.scripts]
-f = "f_cli._cli.main:cli"
-
 [[tool.poetry.source]]
 name = "PyPI"
 priority = "primary"
-
-[tool.poetry.urls]
-"Bug Tracker" = "https://github.com/finleyfamily/f-lib/issues"
 
 [tool.black]
 force-exclude = '''
@@ -165,8 +174,6 @@ target-version = "py312"
 
 [tool.ruff.lint]  # https://docs.astral.sh/ruff/settings/#lint
 ignore = [
-  "ANN101",  # Missing type annotation for `self` in method
-  "ANN102",  # Missing type annotation for `cls` in classmethod
   "COM812",  # Trailing comma missing
   "D203",  # 1 blank line required before class docstring
   "D213",  # Multi-line docstring summary should start at the second line
@@ -207,11 +214,11 @@ max-returns = 10
 [tool.tomlsort]
 all = true
 in_place = true
-sort_first = ["tool", "tool.poetry"]
+sort_first = ["project", "tool", "tool.poetry"]
 spaces_before_inline_comment = 2
 trailing_comma_inline_array = true
-overrides."tool.poetry".first = ["name", "version"]
-overrides."tool.poetry.dependencies".first = ["python"]
+overrides.project.first = ["name", "version"]
+overrides."tool.poetry".first = ["version"]
 
 [build-system]
 build-backend = "poetry_dynamic_versioning.backend"
