@@ -64,7 +64,7 @@ black = "^24.10.0"
 ruff = "^0.9.6"
 
 [tool.poetry.group.test.dependencies]
-coverage = "^7.6.11"
+coverage = "^7.6.12"
 pytest = "^8.3.4"
 pytest-cov = "^6.0.0"
 pytest-mock = "^3.14.0"
