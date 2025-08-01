@@ -462,21 +462,21 @@ testing = ["hatch", "pre-commit", "pytest", "tox"]
 
 [[package]]
 name = "f-lib"
-version = "0.4.2"
+version = "0.4.3"
 description = "Python library created by Kyle Finley, for Kyle Finley."
 optional = false
-python-versions = "<4.0,>=3.11"
+python-versions = "<4,>=3.11"
 groups = ["main"]
 files = [
-    {file = "f_lib-0.4.2-py3-none-any.whl", hash = "sha256:17801d5db9757886a048a599c3859ed819addcd0d3d32a20881439bbb79e5c42"},
-    {file = "f_lib-0.4.2.tar.gz", hash = "sha256:27bb929228ad630e276dfd2f01f6e90bd3502a254aed736551d6ae41f970b2ed"},
+    {file = "f_lib-0.4.3-py3-none-any.whl", hash = "sha256:75f25eb51d604742023e79749f1d9f46828277464931fd385f27bf731560c404"},
+    {file = "f_lib-0.4.3.tar.gz", hash = "sha256:4d9fca09f3a084646eaa8db047998b6cd559392ff97b7799d3869a18f731f35c"},
 ]
 
 [package.dependencies]
 platformdirs = ">=4.1.0,<5.0.0"
 pydantic = ">=2.7.4,<3.0.0"
 pydantic-settings = ">=2.3.4,<3.0.0"
-rich = ">=13.7.1,<14.0.0"
+rich = ">=14.0.0,<15.0.0"
 
 [[package]]
 name = "filelock"
@@ -1211,14 +1211,14 @@ docutils = ">=0.11,<1.0"
 
 [[package]]
 name = "rich"
-version = "13.9.4"
+version = "14.1.0"
 description = "Render rich text, tables, progress bars, syntax highlighting, markdown and more to the terminal"
 optional = false
 python-versions = ">=3.8.0"
 groups = ["main"]
 files = [
-    {file = "rich-13.9.4-py3-none-any.whl", hash = "sha256:6049d5e6ec054bf2779ab3358186963bac2ea89175919d699e378b99738c2a90"},
-    {file = "rich-13.9.4.tar.gz", hash = "sha256:439594978a49a09530cff7ebc4b5c7103ef57baf48d5ea3184f21d9a2befa098"},
+    {file = "rich-14.1.0-py3-none-any.whl", hash = "sha256:536f5f1785986d6dbdea3c75205c473f970777b4a0d6c6dd1b696aa05a3fa04f"},
+    {file = "rich-14.1.0.tar.gz", hash = "sha256:e497a48b844b0320d45007cdebfeaeed8db2a4f4bcf49f15e455cfc4af11eaa8"},
 ]
 
 [package.dependencies]
@@ -1970,4 +1970,4 @@ files = [
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.12, <4"
-content-hash = "c5e488a4e21b38c83efa422fb57d384c9728a3bdbac3fb2adfbed774ff582500"
+content-hash = "6e06ff4eab8d8b4265bf9c0fbcc5225e970104bbb7baa63a30c71a1eabebd377"

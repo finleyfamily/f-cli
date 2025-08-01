@@ -38,7 +38,7 @@ version = "0.0.0"
 [tool.poetry.dependencies]
 click = "^8.1.7"
 f-lib = "^0.4.2"
-rich = "^13.7.1"
+rich = "^14.0.0"
 rich-click = "^1.8.3"
 
 [tool.poetry.group.dev.dependencies]
