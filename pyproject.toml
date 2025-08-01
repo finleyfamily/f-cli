@@ -3,24 +3,8 @@ name = "f-cli"
 authors = [
   {email = "kyle@finley.sh", name = "Kyle Finley"},
 ]
-classifiers = [
-  "Environment :: Console",
-  "Intended Audience :: Developers",
-  "Natural Language :: English",
-  "Operating System :: OS Independent",
-  "Programming Language :: Python :: 3.12",
-  "Topic :: Utilities",
-]
-dependencies = [
-  "click (>=8.1.7, <9.0.0)",
-  "f-lib (>=0.4.2, <1.0.0)",
-  "rich (>=13.7.1, <14.0.0)",
-  "rich-click (>=1.8.3, <2.0.0)",
-]
 description = "CLI created by Kyle Finley, for Kyle Finley."
-dynamic = [
-  "version",
-]
+dynamic = ["classifiers", "dependencies", "version"]
 keywords = ["cli"]
 license = {text = "Apache-2.0"}
 maintainers = [
@@ -39,10 +23,23 @@ issues = "https://github.com/finleyfamily/f-cli/issues"
 source = "https://github.com/finleyfamily/f-cli"
 
 [tool.poetry]
+classifiers = [
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "Natural Language :: English",
+  "Operating System :: OS Independent",
+  "Topic :: Utilities",
+]
 packages = [
   {include = "f_cli"},
 ]
 version = "0.0.0"
+
+[tool.poetry.dependencies]
+click = "^8.1.7"
+f-lib = "^0.4.2"
+rich = "^13.7.1"
+rich-click = "^1.8.3"
 
 [tool.poetry.group.dev.dependencies]
 pre-commit = "^4.2.0"
