@@ -17,9 +17,5 @@ if TYPE_CHECKING:
 def self_config_init(ctx: ClickContext) -> None:
     """Initiate the CLI's configuration files."""
     ctx.obj.console.print("Welcome to f-cli!")
-    ctx.obj.console.print(
-        f"Configuration files will now be created in {ctx.obj.config_dir}..."
-    )
-    ctx.obj.console.print(
-        "[bold green]Configuration files have successfully been created![/]"
-    )
+    ctx.obj.console.print(f"Configuration files will now be created in {ctx.obj.config_dir}...")
+    ctx.obj.console.print("[bold green]Configuration files have successfully been created![/]")

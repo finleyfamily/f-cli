@@ -9,14 +9,14 @@ import click
 if TYPE_CHECKING:
     from collections.abc import Callable
 
-_ClickContextTypeVar = TypeVar("_ClickContextTypeVar", bound=click.Context)
+ClickContextTypeVar = TypeVar("ClickContextTypeVar", bound=click.Context)
 
-_P = ParamSpec("_P")
-_R = TypeVar("_R")
+P = ParamSpec("P")
+R = TypeVar("R")
 
 
-def pass_context(
-    f: Callable[Concatenate[_ClickContextTypeVar, _P], _R]
-) -> Callable[_P, _R]:
+def pass_context[ClickContextTypeVar, **P, R](
+    f: Callable[Concatenate[ClickContextTypeVar, P], R],
+) -> Callable[P, R]:
     """Marks a callback as wanting to receive the current context object as first argument."""
     return click.pass_context(f)  # type: ignore[reportGeneralTypeIssues]
