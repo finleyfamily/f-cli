@@ -16,5 +16,5 @@ def cli_runner_factory(request: SubRequest) -> CliRunner:
     kwargs: dict[str, Any] = {"env": os.environ.copy()}
     mark = request.node.get_closest_marker("cli_runner")
     if mark:
-        kwargs.update(cast(dict[str, Any], mark.kwargs))
+        kwargs.update(cast("dict[str, Any]", mark.kwargs))
     return CliRunner(**kwargs)

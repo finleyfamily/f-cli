@@ -57,7 +57,6 @@ sphinxcontrib-jquery = "^4.1"
 sphinxcontrib-programoutput = "^0.17"
 
 [tool.poetry.group.lint.dependencies]
-black = "^24.10.0"
 ruff = "^0.12.7"
 
 [tool.poetry.group.test.dependencies]
@@ -70,22 +69,6 @@ pytest-xdist = "^3.8.0"
 
 [tool.poetry.requires-plugins]
 poetry-dynamic-versioning = {extras = ["plugin"], version = ">=1.6.0,<2.0.0"}
-
-[tool.black]
-force-exclude = '''
-/(
-    \.eggs
-  | \.git
-  | \.venv
-  | _build
-  | build
-  | dist
-  | node_modules
-)/
-'''
-include = '\.pyi?$'
-line-length = 88
-target-version = ["py312"]
 
 [tool.coverage.report]
 exclude_lines = [
@@ -168,16 +151,12 @@ line-length = 120
 show-fixes = true
 target-version = "py312"
 
+[tool.ruff.format]  # https://docs.astral.sh/ruff/settings/#format
+docstring-code-format = true
+
 [tool.ruff.lint]  # https://docs.astral.sh/ruff/settings/#lint
 ignore = [
-  "COM812",  # Trailing comma missing
-  "D203",  # 1 blank line required before class docstring
-  "D213",  # Multi-line docstring summary should start at the second line
-  "D215",  # Section underline is over-indented
-  "D406",  # Section name should end with a newline
-  "D407",  # Missing dashed underline after section
-  "D408",  # Section underline should be in the line following the section's name
-  "D409",  # Section underline should match the length of its name
+  "COM812",  # Trailing comma missing  # NOTE (kyle): needs to be disabled when using formatter
   "ERA001",  # Found commented-out code  # NOTE (kyle): incorrectly detects cspell
   "FIX002",  # Line contains TODO
   "TD003",  # Missing issue link on the line following this TODO
@@ -192,7 +171,6 @@ select = ["ALL"]
 "tests/*" = [
   "FBT001",  # Boolean positional arg in function definition - this is fine here
   "FBT003",  # Boolean positional value in function call - this is fine here
-  "PT004",  # Fixture does not return anything, add leading underscore
   "S101",  # Use of `assert` detected - this is fine here
   "S108",  # Probable insecure usage of temporary file or directory
   "S604",  # Function call with `shell=True` parameter identified - this is fine here
