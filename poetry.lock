@@ -1339,20 +1339,24 @@ docs = ["furo", "ipython", "myst-parser", "sphinx-copybutton", "sphinx-inline-ta
 
 [[package]]
 name = "sphinx-click"
-version = "6.0.0"
+version = "6.1.0"
 description = "Sphinx extension that automatically documents click applications"
 optional = false
-python-versions = ">=3.8"
+python-versions = ">=3.10"
 groups = ["docs"]
 files = [
-    {file = "sphinx_click-6.0.0-py3-none-any.whl", hash = "sha256:1e0a3c83bcb7c55497751b19d07ebe56b5d7b85eb76dd399cf9061b497adc317"},
-    {file = "sphinx_click-6.0.0.tar.gz", hash = "sha256:f5d664321dc0c6622ff019f1e1c84e58ce0cecfddeb510e004cf60c2a3ab465b"},
+    {file = "sphinx_click-6.1.0-py3-none-any.whl", hash = "sha256:7dbed856c3d0be75a394da444850d5fc7ecc5694534400aa5ed4f4849a8643f9"},
+    {file = "sphinx_click-6.1.0.tar.gz", hash = "sha256:c702e0751c1a0b6ad649e4f7faebd0dc09a3cc7ca3b50f959698383772f50eef"},
 ]
 
 [package.dependencies]
 click = ">=8.0"
 docutils = "*"
 sphinx = ">=4.0"
+
+[package.extras]
+docs = ["reno"]
+test = ["pytest", "pytest-cov"]
 
 [[package]]
 name = "sphinx-copybutton"
@@ -1877,4 +1881,4 @@ files = [
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.12, <4"
-content-hash = "6725ae905c646f3c5cea3de2211e972cef31933c44892a962179644b3f0488e1"
+content-hash = "3b560638a06bd32cbf6ad86f56bdfdd2e906fc1d9e3cca6c8a323a1cc172fb61"
