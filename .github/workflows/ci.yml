@@ -43,7 +43,7 @@ jobs:
       id-token: write
     steps:
       - name: ⤵️ Download Distribution Artifact
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v6
         with:
           name: pypi-dist
           path: dist
