@@ -102,14 +102,14 @@ lxml = ["lxml"]
 
 [[package]]
 name = "certifi"
-version = "2026.7.22"
+version = "2026.10.18"
 description = "Python package for providing Mozilla's CA Bundle."
 optional = false
 python-versions = ">=3.7"
 groups = ["docs"]
 files = [
-    {file = "certifi-2026.7.22-py3-none-any.whl", hash = "sha256:62f22742b58a1a33014a2b6b706588a8d7e2a88ae7bd1a6ebe8c992928483775"},
-    {file = "certifi-2026.7.22.tar.gz", hash = "sha256:741e2c3b351ddf169a738da9f2c048608ff7f2c5cc02f1ebc6b118bb090d5d55"},
+    {file = "certifi-2026.10.18-py3-none-any.whl", hash = "sha256:73191c47aaa79da394e8fee2dbc2ec827432cab56311122c9e47abf79e390f62"},
+    {file = "certifi-2026.10.18.tar.gz", hash = "sha256:b9995d97b64d0431a5af837d8ca8cd6238104d1f319f04bd93ea43124d6c861e"},
 ]
 
 [[package]]
@@ -467,14 +467,14 @@ toml = ["tomli ; python_full_version <= \"3.11.0a6\""]
 
 [[package]]
 name = "distlib"
-version = "0.4.3"
+version = "0.4.4"
 description = "Distribution utilities"
 optional = false
 python-versions = "*"
 groups = ["dev"]
 files = [
-    {file = "distlib-0.4.3-py2.py3-none-any.whl", hash = "sha256:4b0ce306c966eb73bc3a7b6abad017c556dadd92c44701562cd528ac7fde4d5b"},
-    {file = "distlib-0.4.3.tar.gz", hash = "sha256:f152097224a0ae24be5a0f6bae1b9359af82133bce63f98a95f86cae1aede9ed"},
+    {file = "distlib-0.4.4-py2.py3-none-any.whl", hash = "sha256:cf09d55b1e85a89576b036aeb71550bfd68320f3f21761ca329eadadad918638"},
+    {file = "distlib-0.4.4.tar.gz", hash = "sha256:ca4175b4ac7f71223cc30ed7248c45d2b38c2439d8ee6e498ab67ed63cf3508d"},
 ]
 
 [[package]]
@@ -542,14 +542,14 @@ rich = ">=14.0.0,<15.0.0"
 
 [[package]]
 name = "filelock"
-version = "4.1.1"
+version = "4.2.3"
 description = "A platform independent file lock."
 optional = false
 python-versions = ">=3.11"
 groups = ["dev"]
 files = [
-    {file = "filelock-4.1.1-py3-none-any.whl", hash = "sha256:3f4a557945a7b0f95efeb1f432267affe5d45ac8ddde2aed1b97ebb62382c089"},
-    {file = "filelock-4.1.1.tar.gz", hash = "sha256:7ba0927482c5a814b0a7f391d029ccdb8010f576f0a74c0dcde1811e8bc4c1b6"},
+    {file = "filelock-4.2.3-py3-none-any.whl", hash = "sha256:8a09a56992ac9c4eb58d17c6c723c1fe5209fbcd4d569b49d58c1a9103295061"},
+    {file = "filelock-4.2.3.tar.gz", hash = "sha256:baae96d6059bcd6aab5e4d78283de7580b362b392d6e4fd8572816d646ea2bf0"},
 ]
 
 [[package]]
@@ -896,31 +896,27 @@ setuptools = "*"
 
 [[package]]
 name = "platformdirs"
-version = "4.13.0"
+version = "4.13.5"
 description = "A small Python package for determining appropriate platform-specific dirs, e.g. a `user data dir`."
 optional = false
 python-versions = ">=3.11"
 groups = ["main", "dev"]
 files = [
-    {file = "platformdirs-4.13.0-py3-none-any.whl", hash = "sha256:3dbcf4cd708f21cf876c4eaa90e58412bc4f033d87143f41b1493ff77c25b7e1"},
-    {file = "platformdirs-4.13.0.tar.gz", hash = "sha256:1aa0b0d3f224c1f07c295121e312a5a24a180d6ae5a8425ea1784b3e3863e9c0"},
+    {file = "platformdirs-4.13.5-py3-none-any.whl", hash = "sha256:53d3ec4280b815c1e0b02edad7f9ee8fda1ba9c0865dd9c2e6e63849ce82fc1e"},
+    {file = "platformdirs-4.13.5.tar.gz", hash = "sha256:05831adf87d392760f4b5c3a0a95579ab5a10b18b9b9bd43680dcb47544788a0"},
 ]
 
 [[package]]
 name = "pluggy"
-version = "1.6.0"
+version = "1.7.0"
 description = "plugin and hook calling mechanisms for python"
 optional = false
-python-versions = ">=3.9"
+python-versions = ">=3.10"
 groups = ["test"]
 files = [
-    {file = "pluggy-1.6.0-py3-none-any.whl", hash = "sha256:e920276dd6813095e9377c0bc5566d94c932c33b27a3e3945d8389c374dd4746"},
-    {file = "pluggy-1.6.0.tar.gz", hash = "sha256:7dcc130b76258d33b90f61b658791dede3486c3e6bfb003ee5c9bfb396dd22f3"},
+    {file = "pluggy-1.7.0-py3-none-any.whl", hash = "sha256:7dd7b0d8832ba3cb632c306926ded123429211b83641b35dc5c41ad2d34f9bec"},
+    {file = "pluggy-1.7.0.tar.gz", hash = "sha256:d1eaa46ebb595891b860ab086b4d09c8588af65ebd4361b8e8f4bb8920b90ba8"},
 ]
-
-[package.extras]
-dev = ["pre-commit", "tox"]
-testing = ["coverage", "pytest", "pytest-benchmark"]
 
 [[package]]
 name = "pre-commit"
@@ -1115,26 +1111,27 @@ typing-extensions = ">=4.16.0"
 
 [[package]]
 name = "pydantic-settings"
-version = "2.15.0"
+version = "2.16.0"
 description = "Settings management using Pydantic"
 optional = false
-python-versions = ">=3.10"
+python-versions = ">=3.11"
 groups = ["main"]
 files = [
-    {file = "pydantic_settings-2.15.0-py3-none-any.whl", hash = "sha256:0ba092c291c94baceb5eff768aa0d56400a457585bc0175925a5a5510303da42"},
-    {file = "pydantic_settings-2.15.0.tar.gz", hash = "sha256:694b793e84f766ba76a90ebdefc01d0a9a045dab0382bee70393da93712ad117"},
+    {file = "pydantic_settings-2.16.0-py3-none-any.whl", hash = "sha256:7e73acf7f61936a15e5a3b6eedaea29f133357faf7272f2607ba479b049dd7f2"},
+    {file = "pydantic_settings-2.16.0.tar.gz", hash = "sha256:5b6c578049ede4db0e2ef3b4eaa4ad4069cfa9211f83fb38df899dfade50a614"},
 ]
 
 [package.dependencies]
 pydantic = ">=2.7.0"
-python-dotenv = ">=0.21.0"
+python-dotenv = ">=1.2.2"
+typing-extensions = ">=4.0.0"
 typing-inspection = ">=0.4.0"
 
 [package.extras]
 aws-secrets-manager = ["boto3 (>=1.35.0)"]
+aws-systems-manager = ["boto3 (>=1.35.0)"]
 azure-key-vault = ["azure-identity (>=1.16.0)", "azure-keyvault-secrets (>=4.8.0)"]
 gcp-secret-manager = ["google-cloud-secret-manager (>=2.23.1)"]
-toml = ["tomli (>=2.0.1)"]
 yaml = ["pyyaml (>=6.0.1)"]
 
 [[package]]
@@ -1254,14 +1251,14 @@ testing = ["filelock"]
 
 [[package]]
 name = "python-discovery"
-version = "1.6.2"
+version = "1.6.3"
 description = "Python interpreter discovery"
 optional = false
 python-versions = ">=3.9"
 groups = ["dev"]
 files = [
-    {file = "python_discovery-1.6.2-py3-none-any.whl", hash = "sha256:f0c697f95a3aaec4174a6e5e58f5885e25768684bafc76f1afde384709ebdcf2"},
-    {file = "python_discovery-1.6.2.tar.gz", hash = "sha256:cd1738ca1d37c86ef9d0b654dd46fcee1e41c97c6add12575e8501ced39afdb4"},
+    {file = "python_discovery-1.6.3-py3-none-any.whl", hash = "sha256:cb7654125e3dcb594269a6feb56ac693f1f13b7c654493a93eba72dc22d18034"},
+    {file = "python_discovery-1.6.3.tar.gz", hash = "sha256:a62b301d96cf5489cb96ab023b32e068421867fdd5df2e42eece877869047fa2"},
 ]
 
 [package.dependencies]
@@ -1514,14 +1511,14 @@ files = [
 
 [[package]]
 name = "soupsieve"
-version = "3.0.2"
+version = "3.0.3"
 description = "A modern CSS selector implementation for Beautiful Soup."
 optional = false
 python-versions = ">=3.11.5"
 groups = ["docs"]
 files = [
-    {file = "soupsieve-3.0.2-py3-none-any.whl", hash = "sha256:9f2c709e4bfbb3f520289e81a4e14808bf0b3259c7f6c3b9efab30058be0607e"},
-    {file = "soupsieve-3.0.2.tar.gz", hash = "sha256:841ce01c8e80b3bf95c2f2657f191b024be1cdd9d6c0d24a663af247da81911a"},
+    {file = "soupsieve-3.0.3-py3-none-any.whl", hash = "sha256:fa30e3ba4809cb81ce1f3209f2fbe3e779fc445f0439bc147a0d7c4601743f21"},
+    {file = "soupsieve-3.0.3.tar.gz", hash = "sha256:7dcf6022eed0399eb9934a75e020148f7a2024c37b7dfcd3cf2c5505d69c364e"},
 ]
 
 [[package]]
@@ -1810,14 +1807,14 @@ test = ["pytest"]
 
 [[package]]
 name = "starlette"
-version = "1.7.0"
+version = "1.9.0"
 description = "The little ASGI library that shines."
 optional = false
-python-versions = ">=3.10"
+python-versions = ">=3.11"
 groups = ["docs"]
 files = [
-    {file = "starlette-1.7.0-py3-none-any.whl", hash = "sha256:67f8e99895493dd2911a03f11314af6ceebeae4e704bb9f43dfc6a9db151c93e"},
-    {file = "starlette-1.7.0.tar.gz", hash = "sha256:c79f74ea63cff761804fbbfb182f1e0b440c2d07b164d24700c5a1bab5d6ff5d"},
+    {file = "starlette-1.9.0-py3-none-any.whl", hash = "sha256:fd3f159936e882d06c1108f84688f7cda2cf85fc6a592a50edbd175e882c2ddc"},
+    {file = "starlette-1.9.0.tar.gz", hash = "sha256:3d931de246ed870e35ce605974440816ef895e592f255d1396cfdf191d4c4318"},
 ]
 
 [package.dependencies]
@@ -1920,14 +1917,14 @@ standard = ["httptools (>=0.8.0)", "python-dotenv (>=0.13)", "pyyaml (>=5.1)", "
 
 [[package]]
 name = "virtualenv"
-version = "21.14.7"
+version = "21.14.11"
 description = "Virtual Python Environment builder"
 optional = false
 python-versions = ">=3.9"
 groups = ["dev"]
 files = [
-    {file = "virtualenv-21.14.7-py3-none-any.whl", hash = "sha256:3769219a308c5d2f093e7729621ad12a6346b5767a7ec4338414e2a0fb0c526b"},
-    {file = "virtualenv-21.14.7.tar.gz", hash = "sha256:5f427d56f39eb7e7447d641dd4b7ab1e9c92793f498f35f26da2e4972c5546ae"},
+    {file = "virtualenv-21.14.11-py3-none-any.whl", hash = "sha256:b319f8590a84e5de5f8f2c803ecd2237e9bc0ffa7c1e875e3169c107cecb7454"},
+    {file = "virtualenv-21.14.11.tar.gz", hash = "sha256:593052d8477ea8c55a842387ce111bd08c72618f0c1133c302cafe335e570a57"},
 ]
 
 [package.dependencies]
